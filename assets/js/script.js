@@ -40,7 +40,7 @@ typingEffect();
 
 
 function downloadCV() {
-    fetch('assets/cv.txt')
+    fetch('https://raw.githubusercontent.com/hafizakhanam/portfolio-website/main/assets/cv.txt')
       .then(response => response.blob())
       .then(blob => {
         const url = window.URL.createObjectURL(new Blob([blob]));
@@ -52,4 +52,32 @@ function downloadCV() {
         window.URL.revokeObjectURL(url);
       })
       .catch(error => console.error('Error downloading CV:', error));
-  }
+}
+
+
+let tabsContainer = document.querySelector("#tabs");
+
+let tabTogglers = tabsContainer.querySelectorAll("#tabs a");
+
+console.log(tabTogglers);
+
+tabTogglers.forEach(function(toggler) {
+  toggler.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    let tabName = this.getAttribute("href");
+
+    let tabContents = document.querySelector("#tab-contents");
+
+    for (let i = 0; i < tabContents.children.length; i++) {
+      
+      tabTogglers[i].parentElement.classList.remove("bg-[#55e6a5]", "border-r");  tabContents.children[i].classList.remove("hidden");
+      if ("#" + tabContents.children[i].id === tabName) {
+        continue;
+      }
+      tabContents.children[i].classList.add("hidden");
+      
+    }
+    e.target.parentElement.classList.add("bg-[#55e6a5]", "border-r");
+  });
+});

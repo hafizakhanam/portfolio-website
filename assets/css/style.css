@@ -42,3 +42,58 @@
         justify-content: end;
     }
 }
+
+
+.edu-card {
+    position: relative;
+    height: 200px;
+    perspective: 1000px;
+ }
+ .edu-card:hover .front {
+    transform: rotateY(180deg);
+ }
+ .edu-card:hover .back{
+    transform: rotateY(360deg);
+ }
+ 
+ .front, .back {
+    position: absolute;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    outline: none;
+    box-shadow: 0 2px 2px 2px rgba(190, 190, 190, 0.4);
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: all .9s;
+ }
+ 
+ .front {
+    background-color: #fff;
+ }
+ .front__content {
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+ }
+ .back {
+    transform: rotateY(180deg);
+
+ }
+ .back__content {
+    padding: 20px;
+ }
+
+ .section-divider {
+    border-bottom: 5px solid transparent;
+    border-image: linear-gradient(to right, #fff, #fff, #55e6a5, #fff, #fff) 1;
+    border-image-slice: 10;
+}
+
+.dropdown .dropdown-content {
+    right: 0;
+    top: 80px;
+}
